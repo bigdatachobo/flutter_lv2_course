@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lv2_course/common/view/splash_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:flutter_lv2_course/user/view/login_screen.dart';
 
 void main() {
-  runApp(const _App());
+  runApp(ProviderScope(
+    child: _App(),
+  ));
 }
 
 class _App extends StatelessWidget {

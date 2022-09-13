@@ -106,6 +106,10 @@ flutter_lints
 2.17
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1/
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1/lib/
+flutter_riverpod
+2.14
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_riverpod-1.0.4/
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_riverpod-1.0.4/lib/
 flutter_secure_storage
 2.12
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-6.0.0/
@@ -230,6 +234,10 @@ retrofit_generator
 2.14
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/retrofit_generator-4.0.3+1/
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/retrofit_generator-4.0.3+1/lib/
+riverpod
+2.14
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/riverpod-1.0.3/
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/riverpod-1.0.3/lib/
 shelf
 2.16
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/shelf-1.3.2/
@@ -254,6 +262,10 @@ stack_trace
 2.12
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0/lib/
+state_notifier
+2.12
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/state_notifier-0.7.2+1/
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/state_notifier-0.7.2+1/lib/
 stream_channel
 2.12
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.1.0/
