@@ -4,6 +4,18 @@ import 'package:flutter_lv2_course/restaurant/model/restaurant_model.dart';
 import 'package:flutter_lv2_course/restaurant/repository/restaurant_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+final restaurantDetailProvider =
+    Provider.family<RestaurantModel?, String>((ref, id) {
+  final state = ref.watch(restaurantProvider);
+
+  // is! -> is not
+  if (state is! CursorPagination) {
+    return null;
+  }
+
+  return state.data.firstWhere((element) => element.id == id);
+});
+
 final restaurantProvider =
     StateNotifierProvider<RestaurantStateNotifier, CursorPaginationBase>(
   (ref) {
@@ -25,7 +37,7 @@ class RestaurantStateNotifier extends StateNotifier<CursorPaginationBase> {
   }
 
   // 홈 화면 페이지 데이터 가져오는 함수
-  paginate({
+  Future<void> paginate({
     int fetchCount = 20,
     bool fetchMore =
         false, // 추가로 데이터 더 가져오기 - true(더 가져옴), false(새로고침, 현재상태 덮어씌움)
@@ -131,5 +143,37 @@ class RestaurantStateNotifier extends StateNotifier<CursorPaginationBase> {
     } catch (e) {
       state = CursorPaginationError(message: '데이터를 가져오지 못 했습니다.');
     }
+  }
+
+  void getDetail({
+    required String id,
+  }) async {
+    // 만약에 아직 데이터가 하나도 없는 상태라면 (CursorPagination이 아니라면)
+    // 데이터를 가져오는 시도를 한다.
+    if (state is! CursorPagination) {
+      await this.paginate();
+    }
+
+    // 위에서 paginate()를 했는데도,
+    // state가 CursorPagination이 아닐때 그냥 null return
+    // 상세값을 가져올 수 없는 상태(서버 에러)
+    if (state is! CursorPagination) {
+      return;
+    }
+
+    // 이 단계부터는 무조건 CursorPagination이라고 볼 수 있다.
+    final pState = state as CursorPagination;
+
+    final resp = await repository.getRestaurantDetail(id: id);
+
+    // [ RestaurantModel(1), RestaurantModel(2), RestaurantModel(3) ]
+    // id : 2 인 친구의 Detail 모델을 가져와라
+    // getDetail(id:2);
+    // [ RestaurantModel(1), RestaurantDetailModel(2), RestaurantModel(3) ]
+    state = pState.copyWith(
+      data: pState.data
+          .map<RestaurantModel>((e) => e.id == id ? resp : e)
+          .toList(),
+    );
   }
 }

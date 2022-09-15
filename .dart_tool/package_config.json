@@ -392,6 +392,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "skeletons",
+      "rootUri": "file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/skeletons-0.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/sss/Documents/libraries/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -506,7 +512,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-09-13T05:16:16.498266Z",
+  "generated": "2022-09-15T14:48:08.961890Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }
