@@ -1,7 +1,4 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_lv2_course/common/const/data.dart';
-import 'package:flutter_lv2_course/common/dio/dio.dart';
 import 'package:flutter_lv2_course/common/layout/default_layout.dart';
 import 'package:flutter_lv2_course/common/model/cursor_pagination_model.dart';
 import 'package:flutter_lv2_course/common/utils/pagination_utils.dart';
@@ -13,7 +10,6 @@ import 'package:flutter_lv2_course/restaurant/model/restaurant_detail_model.dart
 import 'package:flutter_lv2_course/restaurant/model/restaurant_model.dart';
 import 'package:flutter_lv2_course/restaurant/provider/restaurant_provider.dart';
 import 'package:flutter_lv2_course/restaurant/provider/restaurant_rating_provider.dart';
-import 'package:flutter_lv2_course/restaurant/repository/restaurant_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:skeletons/skeletons.dart';
 
