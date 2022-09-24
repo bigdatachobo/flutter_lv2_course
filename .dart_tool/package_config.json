@@ -236,6 +236,12 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "go_router",
+      "rootUri": "file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/go_router-4.5.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "graphs",
       "rootUri": "file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/graphs-2.1.0",
       "packageUri": "lib/",
@@ -512,7 +518,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-09-21T14:17:11.302493Z",
+  "generated": "2022-09-24T16:11:21.505583Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }
