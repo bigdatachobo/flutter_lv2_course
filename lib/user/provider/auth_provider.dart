@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lv2_course/common/view/root_tab.dart';
+import 'package:flutter_lv2_course/common/view/splash_screen.dart';
+import 'package:flutter_lv2_course/restaurant/view/restaurant_detail_screen.dart';
 import 'package:flutter_lv2_course/user/model/user_model.dart';
 import 'package:flutter_lv2_course/user/provider/user_me_provider.dart';
+import 'package:flutter_lv2_course/user/view/login_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,6 +23,39 @@ class AuthProvider extends ChangeNotifier {
         notifyListeners();
       }
     });
+  }
+
+  List<GoRoute> get routes => [
+        GoRoute(
+          path: '/',
+          name: RootTab.routeName,
+          builder: (_, __) => RootTab(),
+          routes: [
+            GoRoute(
+              path: 'restaurant/:rid',
+              name: RestaurantDetailScreen.routeName,
+              builder: (_, state) =>
+                  RestaurantDetailScreen(id: state.params['rid']!),
+            )
+          ],
+        ),
+        GoRoute(
+          path: '/splash',
+          name: SplashScreen.routeName,
+          builder: (_, __) => SplashScreen(),
+        ),
+        GoRoute(
+          path: '/login',
+          name: LoginScreen.routeName,
+          builder: (_, __) => LoginScreen(),
+        ),
+      ];
+
+  void logout() {
+    // ref.read() 함수는 실행하는 순간에만 userMeProvider를 불러오는 것뿐이지
+    // 의존성 문제는 발생하지 않게된다.
+    ref.read(userMeProvider.notifier).logout();
+    notifyListeners();
   }
 
   // Splashscreen
