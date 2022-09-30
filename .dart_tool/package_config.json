@@ -140,6 +140,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "debounce_throttle",
+      "rootUri": "file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/debounce_throttle-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dio",
       "rootUri": "file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/dio-4.0.6",
       "packageUri": "lib/",
@@ -404,6 +410,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "simple_observable",
+      "rootUri": "file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/simple_observable-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "skeletons",
       "rootUri": "file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/skeletons-0.0.3",
       "packageUri": "lib/",
@@ -530,7 +542,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2022-09-29T05:35:31.178987Z",
+  "generated": "2022-09-30T07:36:54.539716Z",
   "generator": "pub",
   "generatorVersion": "2.18.0"
 }

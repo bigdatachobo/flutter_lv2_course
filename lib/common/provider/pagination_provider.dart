@@ -1,3 +1,4 @@
+import 'package:debounce_throttle/debounce_throttle.dart';
 import 'package:flutter_lv2_course/common/model/cursor_pagination_model.dart';
 import 'package:flutter_lv2_course/common/model/model_with_id.dart';
 import 'package:flutter_lv2_course/common/repository/base_pagination_repository.dart';
@@ -5,12 +6,29 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../model/pagination_params.dart';
 
+class _PaginationInfo {
+  final int fetchCount;
+  final bool fetchMore;
+  final bool forceRefetch;
+
+  _PaginationInfo({
+    this.fetchCount = 20,
+    this.fetchMore = false,
+    this.forceRefetch = false,
+  });
+}
+
 // 특정 페이지 시점이되면 추가로 데이터를 가져와서 기존에 있던 페이지 이후에 붙여넣는 기능을함.
 
 class PaginationProvider<T extends IModelWithId,
         U extends IBasePaginationRepository<T>>
     extends StateNotifier<CursorPaginationBase> {
   final U repository;
+  final paginationThrottle = Throttle(
+    Duration(seconds: 3),
+    initialValue: _PaginationInfo(),
+    checkEquality: false,
+  );
 
   PaginationProvider({
     required this.repository,
@@ -18,6 +36,10 @@ class PaginationProvider<T extends IModelWithId,
     // PaginationProvider를 상속받는 모든 class들은
     // 상속하자마자 아래 함수 paginate()를 실행하게 됨.
     paginate();
+
+    paginationThrottle.values.listen((state) {
+      _throttledPagination(state);
+    });
   }
 
   Future<void> paginate({
@@ -29,6 +51,19 @@ class PaginationProvider<T extends IModelWithId,
     // false -
     bool forceRefetch = false,
   }) async {
+    // _throttledPagination();
+    paginationThrottle.setValue(_PaginationInfo(
+      fetchCount: fetchCount,
+      fetchMore: fetchMore,
+      forceRefetch: forceRefetch,
+    ));
+  }
+
+  _throttledPagination(_PaginationInfo info) async {
+    final fetchCount = info.fetchCount;
+    final fetchMore = info.fetchMore;
+    final forceRefetch = info.forceRefetch;
+
     try {
       // 5가지 가능성
       // state의 상태( CursorPaginationBase를 상속하는 클래스 숫자)

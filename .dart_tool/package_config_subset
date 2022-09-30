@@ -90,6 +90,10 @@ dart_style
 2.12
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-2.2.3/
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/dart_style-2.2.3/lib/
+debounce_throttle
+2.12
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/debounce_throttle-2.0.0/
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/debounce_throttle-2.0.0/lib/
 dio
 2.12
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/dio-4.0.6/
@@ -254,6 +258,10 @@ shelf_web_socket
 2.14
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/shelf_web_socket-1.0.2/
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/shelf_web_socket-1.0.2/lib/
+simple_observable
+2.12
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/simple_observable-2.0.0/
+file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/simple_observable-2.0.0/lib/
 skeletons
 2.12
 file:///Users/sss/Documents/libraries/flutter/.pub-cache/hosted/pub.dartlang.org/skeletons-0.0.3/
