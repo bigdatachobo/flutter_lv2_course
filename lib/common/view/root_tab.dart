@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lv2_course/common/const/colors.dart';
 import 'package:flutter_lv2_course/common/layout/default_layout.dart';
+import 'package:flutter_lv2_course/order/view/order_screen.dart';
 import 'package:flutter_lv2_course/product/view/product_screen.dart';
 import 'package:flutter_lv2_course/restaurant/view/restaurant_screen.dart';
 import 'package:flutter_lv2_course/user/view/profile_screen.dart';
@@ -48,7 +49,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
           children: [
             RestaurantScreen(),
             ProductScreen(),
-            Center(child: Container(child: Text('주문'))),
+            OrderScreen(),
             ProfileScreen(),
           ]),
       bottomNavigationBar: BottomNavigationBar(

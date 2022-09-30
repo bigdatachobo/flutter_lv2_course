@@ -94,36 +94,44 @@ class _PaginationListViewState<T extends IModelWithId>
 
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: ListView.separated(
-          controller: controller,
-          itemCount:
-              cp.data.length + 1, // 마지막 스크롤 부분에 데이터 불러올때 로딩화면 보여주기 위해 +1을 더함
-          itemBuilder: (_, index) {
-            if (index == cp.data.length) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                  vertical: 8.0,
-                ),
-                child: Center(
-                  child: cp is CursorPaginationFetchingMore
-                      ? const CircularProgressIndicator()
-                      : const Text('마지막 데이터 입니다. ㅠㅜ'),
-                ),
+        child: RefreshIndicator(
+          onRefresh: () async {
+            ref.read(widget.provider.notifier).paginate(
+                  forceRefetch: true,
+                );
+          },
+          child: ListView.separated(
+            physics: const AlwaysScrollableScrollPhysics(),
+            controller: controller,
+            itemCount:
+                cp.data.length + 1, // 마지막 스크롤 부분에 데이터 불러올때 로딩화면 보여주기 위해 +1을 더함
+            itemBuilder: (_, index) {
+              if (index == cp.data.length) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                    vertical: 8.0,
+                  ),
+                  child: Center(
+                    child: cp is CursorPaginationFetchingMore
+                        ? const CircularProgressIndicator()
+                        : const Text('마지막 데이터 입니다. ㅠㅜ'),
+                  ),
+                );
+              }
+
+              final pItem = cp.data[index];
+
+              return widget.itemBuilder(
+                context,
+                index,
+                pItem,
               );
-            }
-
-            final pItem = cp.data[index];
-
-            return widget.itemBuilder(
-              context,
-              index,
-              pItem,
-            );
-          },
-          separatorBuilder: (_, index) {
-            return const SizedBox(height: 16.0);
-          },
+            },
+            separatorBuilder: (_, index) {
+              return const SizedBox(height: 16.0);
+            },
+          ),
         ));
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lv2_course/common/view/order_done_screen.dart';
 import 'package:flutter_lv2_course/common/view/root_tab.dart';
 import 'package:flutter_lv2_course/common/view/splash_screen.dart';
+import 'package:flutter_lv2_course/restaurant/view/basket_screen.dart';
 import 'package:flutter_lv2_course/restaurant/view/restaurant_detail_screen.dart';
 import 'package:flutter_lv2_course/user/model/user_model.dart';
 import 'package:flutter_lv2_course/user/provider/user_me_provider.dart';
@@ -40,6 +42,16 @@ class AuthProvider extends ChangeNotifier {
           ],
         ),
         GoRoute(
+          path: '/basket',
+          name: BasketScreen.routeName,
+          builder: (_, state) => BasketScreen(),
+        ),
+        GoRoute(
+          path: '/order_done',
+          name: OrderDoneScreen.routeName,
+          builder: (_, state) => OrderDoneScreen(),
+        ),
+        GoRoute(
           path: '/splash',
           name: SplashScreen.routeName,
           builder: (_, __) => SplashScreen(),
@@ -55,7 +67,7 @@ class AuthProvider extends ChangeNotifier {
     // ref.read() 함수는 실행하는 순간에만 userMeProvider를 불러오는 것뿐이지
     // 의존성 문제는 발생하지 않게된다.
     ref.read(userMeProvider.notifier).logout();
-    notifyListeners();
+    // notifyListeners();
   }
 
   // Splashscreen
