@@ -13,7 +13,7 @@ part 'product_repository.g.dart';
 final ProductRepositoryProvider = Provider<ProductRepository>((ref) {
   final dio = ref.watch(dioProvider);
 
-  return ProductRepository(dio, baseUrl: 'https://$ip/product');
+  return ProductRepository(dio, baseUrl: 'http://$ip/product');
 });
 
 // 여기서의 Base URL

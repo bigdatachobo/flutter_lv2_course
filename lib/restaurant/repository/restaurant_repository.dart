@@ -15,7 +15,7 @@ final restaurantRepositoryProvider = Provider<RestaurantRepository>((ref) {
   final dio = ref.watch(dioProvider);
 
   final repository =
-      RestaurantRepository(dio, baseUrl: 'https://$ip/restaurant');
+      RestaurantRepository(dio, baseUrl: 'http://$ip/restaurant');
 
   return repository;
 });

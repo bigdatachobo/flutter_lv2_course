@@ -11,7 +11,7 @@ part 'user_me_repository.g.dart';
 
 final userMeRepositoryProvider = Provider((ref) {
   final dio = ref.watch(dioProvider);
-  return UserMeRepository(dio, baseUrl: 'https://$ip/user/me');
+  return UserMeRepository(dio, baseUrl: 'http://$ip/user/me');
 });
 
 // https://$ip/user/me

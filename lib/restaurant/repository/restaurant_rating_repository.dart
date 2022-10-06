@@ -14,7 +14,7 @@ final restaurantRatingRepositoryProvider =
     Provider.family<RestaurantRatingRepository, String>((ref, id) {
   final dio = ref.watch(dioProvider);
   return RestaurantRatingRepository(dio,
-      baseUrl: 'https://$ip/restaurant/$id/rating');
+      baseUrl: 'http://$ip/restaurant/$id/rating');
 });
 
 // https://ip/restaurant/:rid/rating
